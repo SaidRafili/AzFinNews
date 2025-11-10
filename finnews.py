@@ -1,16 +1,3 @@
-# finnews_final_persistent_home.py
-# AzFinNews — Actual Financial News of Azerbaijan
-# ----------------------------------------------------
-# ✅ Persistent APA.az economy scraper with:
-#    - Pagination (?page=2, etc.) via "turn <n>"
-#    - "list" = alias for "turn 1"
-#    - "home" to return to welcome screen anytime
-#    - Time/date extraction
-#    - Filter out junk (USD, weather)
-#    - Source column ("APA.az")
-#    - Pretty Rich interface + ASCII header + Welcome screen
-# ----------------------------------------------------
-
 import asyncio
 import json
 import os
@@ -92,7 +79,6 @@ def parse_listing(html, base_url):
             continue
         link = href if href.startswith("http") else urljoin(base_url, href)
 
-        # ❌ Skip currency/weather junk
         if "rates" in link or "weather" in link:
             continue
 
@@ -101,7 +87,6 @@ def parse_listing(html, base_url):
         if not title or len(title) < 5:
             continue
 
-        # Extract time/date
         date_div = a.select_one("div.date")
         time_text, date_text = "", ""
         if date_div:
@@ -113,7 +98,6 @@ def parse_listing(html, base_url):
 
         full_date = f"{time_text} {date_text}".strip()
 
-        # Clean trailing time/date in title
         if any(ch.isdigit() for ch in title[-6:]):
             title = title.rstrip("0123456789:.- ")
 
@@ -242,7 +226,6 @@ def render_welcome():
     )
     console.print(Panel(description, title="📘  Getting Started", border_style="bright_black"))
 
-    # Press Enter → behave like "turn 1"
     Prompt.ask("\n[bold green]Press Enter to load the latest financial news[/bold green]")
 
 
@@ -265,7 +248,7 @@ async def interactive_loop():
                 render_welcome()
                 continue
             elif cmd == "list":
-                # alias for "turn 1"
+
                 current_page = 1
                 console.print("[yellow]Loading the latest news (page 1)...[/yellow]")
                 items = await crawl_page(session, 1)
