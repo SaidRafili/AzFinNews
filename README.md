@@ -20,6 +20,12 @@ The interface is powered by [Rich](https://github.com/Textualize/rich) — givin
 
 ---
 
+## 💻 Snapshot
+
+<img width="1890" height="902" alt="Ekran şəkli 2025-11-10 134933" src="https://github.com/user-attachments/assets/0fbc0d83-f6df-4962-8742-a65d2de124b9" />
+
+---
+
 ## 🧩 Requirements
 
 Python **3.9+**
