@@ -182,7 +182,7 @@ Please follow these steps:
 
 ## 🧾 License
 
-This project is released under the **MIT License**.  
+This project is released under the **Creative Commons Zero v1.0 Universal**.  
 You are free to use, modify, and distribute it.
 
 ---
