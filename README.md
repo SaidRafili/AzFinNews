@@ -43,7 +43,7 @@ pip install aiohttp beautifulsoup4 rich
 Clone the repository and navigate into it:
 
 ```bash
-git clone https://github.com/yourusername/azfinnews.git
+git clone https://github.com/SaidRafili/azfinnews.git
 cd azfinnews
 ```
 
